@@ -1,0 +1,23 @@
+THIRD-PARTY COMPONENTS
+
+This application bundles the following third-party runtime components:
+
+PixiJS 7.4.3
+  Source: https://github.com/pixijs/pixijs
+  License: MIT
+
+pixi-live2d-display (Cubism 4 browser build)
+  Source: https://github.com/guansss/pixi-live2d-display
+  License: MIT
+
+Live2D Cubism Core
+  Copyright (C) Live2D Inc. All rights reserved.
+  License: Live2D Proprietary Software License Agreement
+  https://www.live2d.com/eula/live2d-proprietary-software-license-agreement_en.html
+
+Electron
+  Source: https://github.com/electron/electron
+  License: MIT
+
+The bundled Live2D character model is user-provided content. Its copyright and
+distribution terms remain with the model's respective rights holder.

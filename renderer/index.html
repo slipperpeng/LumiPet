@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        http-equiv="Content-Security-Policy"
+        content="default-src 'self' file: data: blob:; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' file: data: blob:; connect-src 'self' file: data: blob:"
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LumiPet</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: transparent;
+            user-select: none;
+        }
+
+        body {
+            cursor: grab;
+        }
+
+        body.is-dragging {
+            cursor: grabbing;
+        }
+
+        #live2d-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+
+        #status {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 28px;
+            color: rgba(255, 255, 255, 0.92);
+            font: 13px -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+            text-align: center;
+            white-space: pre-line;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.9);
+            pointer-events: none;
+        }
+
+        #status[hidden] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="live2d-canvas" aria-label="Live2D character"></canvas>
+    <div id="status" role="status">正在载入角色...</div>
+
+    <script src="../libs/live2dcubismcore.min.js"></script>
+    <script src="../libs/pixi.min.js"></script>
+    <script src="../libs/cubism4.min.js"></script>
+    <script src="renderer.js"></script>
+</body>
+</html>

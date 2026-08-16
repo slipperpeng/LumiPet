@@ -1,0 +1,72 @@
+{
+  "name": "lumipet",
+  "version": "2.0.0",
+  "description": "A lightweight Live2D desktop companion for macOS and Windows",
+  "main": "main.js",
+  "author": "蓝培鹏",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . --dev",
+    "check": "node --check main.js && node --check preload.js && node --check renderer/renderer.js && node scripts/validate-assets.js",
+    "test": "node --test",
+    "pack:mac": "electron-builder --mac dir --arm64",
+    "dist:mac": "electron-builder --mac dmg --arm64",
+    "pack:win": "electron-builder --win dir --x64",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "^42.4.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.slipper.lumipet",
+    "productName": "LumiPet",
+    "artifactName": "LumiPet-${version}-${arch}.${ext}",
+    "asar": true,
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/**/*",
+      "renderer/**/*",
+      "libs/**/*",
+      "model/README.md",
+      "LICENSE",
+      "THIRD-PARTY-NOTICES"
+    ],
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": [
+        {
+          "target": "dir",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "identity": null,
+      "hardenedRuntime": false,
+      "gatekeeperAssess": false,
+      "extendInfo": {
+        "LSUIElement": true
+      }
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LumiPet"
+    }
+  }
+}
