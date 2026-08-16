@@ -1,6 +1,6 @@
 {
   "name": "lumipet",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A lightweight Live2D desktop companion for macOS and Windows",
   "main": "main.js",
   "author": "蓝培鹏",
@@ -8,7 +8,8 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron . --dev",
-    "check": "node --check main.js && node --check preload.js && node --check renderer/renderer.js && node scripts/validate-assets.js",
+    "build:icons": "electron scripts/build-icons.js",
+    "check": "node --check main.js && node --check preload.js && node --check renderer/renderer.js && node --check scripts/build-icons.js && node scripts/validate-assets.js",
     "test": "node --test",
     "pack:mac": "electron-builder --mac dir --arm64",
     "dist:mac": "electron-builder --mac dmg --arm64",
@@ -35,6 +36,7 @@
       "THIRD-PARTY-NOTICES"
     ],
     "mac": {
+      "icon": "build/icon.png",
       "category": "public.app-category.entertainment",
       "target": [
         {
@@ -52,6 +54,7 @@
       }
     },
     "win": {
+      "icon": "build/icon.ico",
       "target": [
         {
           "target": "nsis",

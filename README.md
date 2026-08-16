@@ -1,5 +1,9 @@
 # LumiPet
 
+<p align="center">
+  <img src="build/icon.png" width="128" alt="LumiPet icon">
+</p>
+
 一个通用的 Live2D 桌面宠物，支持 Apple Silicon Mac 和 64 位 Windows。LumiPet 不附带任何角色模型，用户可以在首次启动时选择自己的模型文件夹，并在运行中切换模型。
 
 角色与渲染资源从本地读取，运行时不会访问网络，也不需要屏幕录制或辅助功能权限。
@@ -66,7 +70,7 @@ dist/mac-arm64/LumiPet.app
 npm run dist:win
 ```
 
-构建结果位于 `dist/LumiPet-2.0.0-x64.exe`。这是未签名的 64 位 Windows 安装包；首次运行时 Windows Defender SmartScreen 可能显示未知发布者提示。
+构建结果位于 `dist/LumiPet-2.0.1-x64.exe`。这是未签名的 64 位 Windows 安装包；首次运行时 Windows Defender SmartScreen 可能显示未知发布者提示。
 
 ## 运行库
 

@@ -9,10 +9,16 @@ const requiredLibraries = [
     'libs/pixi.min.js',
     'libs/cubism4.min.js'
 ];
+const requiredIcons = [
+    'build/icon.svg',
+    'build/icon.png',
+    'build/icon.ico'
+];
 
 function assertFile(filePath) {
     if (!fs.statSync(filePath).isFile()) throw new Error(`Expected file: ${filePath}`);
 }
 
 for (const relativePath of requiredLibraries) assertFile(path.join(root, relativePath));
-console.log(`Validated ${requiredLibraries.length} renderer libraries. Users provide Live2D models at first launch.`);
+for (const relativePath of requiredIcons) assertFile(path.join(root, relativePath));
+console.log(`Validated ${requiredLibraries.length} renderer libraries and ${requiredIcons.length} application icons. Users provide Live2D models at first launch.`);
