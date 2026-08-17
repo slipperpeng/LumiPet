@@ -24,10 +24,12 @@ jobs:
           - runner: macos-14
             asset_name: Apple Silicon DMG
             build_command: npm run dist:mac
+            verify_command: npm run verify:mac
             asset_path: dist/*.dmg
           - runner: windows-2025
             asset_name: Windows installer
             build_command: npm run dist:win
+            verify_command: ""
             asset_path: dist/*.exe
     runs-on: ${{ matrix.runner }}
     steps:
@@ -67,6 +69,10 @@ jobs:
 
       - name: Build release asset
         run: ${{ matrix.build_command }}
+
+      - name: Verify macOS code signature and DMG
+        if: matrix.verify_command != ''
+        run: ${{ matrix.verify_command }}
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4

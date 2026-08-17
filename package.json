@@ -13,6 +13,7 @@
     "test": "node --test",
     "pack:mac": "electron-builder --mac dir --arm64",
     "dist:mac": "electron-builder --mac dmg --arm64",
+    "verify:mac": "codesign --verify --deep --strict --verbose=2 dist/mac-arm64/LumiPet.app && hdiutil verify dist/LumiPet-${npm_package_version}-arm64.dmg",
     "pack:win": "electron-builder --win dir --x64",
     "dist:win": "electron-builder --win nsis --x64"
   },
@@ -25,6 +26,7 @@
     "productName": "LumiPet",
     "artifactName": "LumiPet-${version}-${arch}.${ext}",
     "asar": true,
+    "forceCodeSigning": true,
     "files": [
       "main.js",
       "preload.js",
@@ -46,7 +48,7 @@
           ]
         }
       ],
-      "identity": null,
+      "identity": "-",
       "hardenedRuntime": false,
       "gatekeeperAssess": false,
       "extendInfo": {
