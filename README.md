@@ -8,6 +8,13 @@
 
 角色与渲染资源从本地读取，运行时不会访问网络，也不需要屏幕录制或辅助功能权限。
 
+## 下载与安装
+
+- Apple Silicon Mac：从 [Releases](https://github.com/slipperpeng/LumiPet/releases) 下载 `LumiPet-<版本>-arm64.dmg`，打开后将 `LumiPet.app` 拖入“应用程序”。
+- 64 位 Windows：从 [Releases](https://github.com/slipperpeng/LumiPet/releases) 下载 `LumiPet-<版本>-x64.exe` 并运行安装。
+
+发布包目前未签名。macOS 首次阻止打开时，请在 Finder 中右键应用并选择“打开”；Windows Defender SmartScreen 可能显示未知发布者提示。
+
 ## 使用方式
 
 - 首次启动：在系统对话框中选择包含 Live2D 模型的文件夹。
@@ -50,19 +57,21 @@ npm start
 
 源码运行不会注册开机启动，避免把开发环境中的 Electron 注册为登录项。
 
-## 构建 macOS 应用
+## 构建 macOS 应用与 DMG
 
 ```bash
 npm run pack:mac
+npm run dist:mac
 ```
 
 构建结果位于：
 
 ```text
 dist/mac-arm64/LumiPet.app
+dist/LumiPet-<版本>-arm64.dmg
 ```
 
-这是供个人使用的未签名应用。可以将 `.app` 移入 `/Applications` 后运行；如 macOS 首次阻止打开，请在 Finder 中右键应用并选择“打开”。
+这是供个人使用的未签名应用。可以将 `.app` 移入 `/Applications`，也可以通过 DMG 安装。
 
 ## 构建 Windows 安装包
 
@@ -70,7 +79,7 @@ dist/mac-arm64/LumiPet.app
 npm run dist:win
 ```
 
-构建结果位于 `dist/LumiPet-2.0.1-x64.exe`。这是未签名的 64 位 Windows 安装包；首次运行时 Windows Defender SmartScreen 可能显示未知发布者提示。
+构建结果位于 `dist/LumiPet-<版本>-x64.exe`。这是未签名的 64 位 Windows 安装包；首次运行时 Windows Defender SmartScreen 可能显示未知发布者提示。
 
 ## 运行库
 

@@ -40,7 +40,7 @@
       "category": "public.app-category.entertainment",
       "target": [
         {
-          "target": "dir",
+          "target": "dmg",
           "arch": [
             "arm64"
           ]
